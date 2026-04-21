@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: linear-gradient(#f15a24, #ffffff);
+}
+
+header {
+    background: linear-gradient(#29abe2, #0071bc);
+    color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 5px solid black;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: 32px;
+    position: relative;
+    padding-left: 80px;
+    line-height: 1;
+}
+
+header h1 img {
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 65px;
+}
+
+nav {
+    background: linear-gradient(#fcee21, #fbb03b);
+    padding: 20px 0;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+nav > ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 120px;
+}
+
+nav > ul > li {
+    width: 160px;
+    text-align: center;
+    position: relative;
+    padding: 20px 0;
+}
+
+nav > ul > li > a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    text-shadow: 0px 0px 5px white;
+    transition: text-shadow 0.5s;
+    -webkit-transition: text-shadow 0.5s;
+    -moz-transition: text-shadow 0.5s;
+    -o-transition: text-shadow 0.5s;
+}
+
+nav > ul > li > a:hover {
+    text-shadow: 2px 2px 0px red;
+}
+
+nav img {
+    display: block;
+    margin: 0 auto 6px;
+}
+
+nav > ul > li > ul {
+    position: absolute;
+    z-index: 10;
+    list-style: none;
+    width: 100px;
+    text-align: center;
+    left: 50%;
+    margin-left: -50px;
+    top: 100%;        
+    font-family: Verdana, sans-serif;
+    height: 0px;
+    overflow: hidden;
+    padding: 0;
+    margin-top: 0;
+    -webkit-transition: height 0.4s linear;
+    -moz-transition: height 0.4s linear;
+    -o-transition: height 0.4s linear;
+    transition: height 0.4s linear;
+}
+
+nav > ul > li:hover > ul {
+    height: 111px;    
+}
+
+nav > ul > li > ul > li {
+    background-color: #e34c26;
+    width: 100px;
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav > ul > li > ul > li:nth-child(odd) {
+    background-color: #f06529;
+}
+
+nav > ul > li > ul > li:hover {
+    background-color: #ff7e42;
+}
+
+nav > ul > li > ul > li:first-child {
+    border-radius: 3px 3px 0 0;
+    position: relative;
+}
+
+nav > ul > li > ul > li:last-child {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+nav > ul > li > ul > li:first-child:before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    border: 5px solid transparent;
+    border-bottom-color: #f06529;
+    left: 50%;
+    top: -10px;
+    margin-left: -5px;
+}
+
+nav > ul > li > ul > li > a {
+    padding: 10px 12px;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    font-size: 13px;
+    text-shadow: none;
+    transition: none;
+}
+
+nav > ul > li > ul > li > a:hover {
+    text-shadow: none;
+}
+
+body > div {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px 0 40px 0;
+    overflow: visible;
+    background: white;
+    max-width: 1100px;
+    margin: 0 auto 40px;
+}
+
+article {
+    width: 300px;
+    height: 560px;
+    background: url("../imgs/tel.jpeg") no-repeat center;
+    background-size: contain;
+    padding: 80px 30px 40px 30px;
+    text-align: center;
+    position: relative;
+    margin-top: 60px;
+}
+
+article img:first-child {
+    width: 120px;
+    margin-bottom: 15px;
+}
+
+article h2 {
+    margin: 15px 0;
+    font-size: 26px;
+}
+
+article p {
+    font-size: 14px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.chincheta {
+    position: absolute;
+    width: 35px;
+    height: 49px;
+    top: -20px;
+    background-image: url("../imgs/chincheta.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 3;
+}
+
+article:nth-child(1) .chincheta { left: 170px; }
+article:nth-child(2) .chincheta { left: 120px; }
+article:nth-child(3) .chincheta { left: 55px; }
+article:nth-child(1) {
+    transform: rotate(-2deg);
+    -webkit-transform: rotate(-2deg);
+    -moz-transform: rotate(-2deg);
+    -o-transform: rotate(-2deg);
+    -ms-transform: rotate(-2deg);
+}
+
+article:nth-child(3) {
+    transform: rotate(2deg);
+    -webkit-transform: rotate(2deg);
+    -moz-transform: rotate(2deg);
+    -o-transform: rotate(2deg);
+    -ms-transform: rotate(2deg);
+}
+
+main {
+    display: block;
+    max-width: 1100px;
+    margin: 0 auto 40px;
+    background: white;
+    overflow: auto;
+    padding: 20px;
+}
+
+footer {
+    background: linear-gradient(#29abe2, #0071bc);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+footer a {
+    color: white;
+}
