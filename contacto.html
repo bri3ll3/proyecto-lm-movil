@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Contacto - Curso de HTML5 y CSS3</title>
+  <meta name="description" content="HTML5, CSS3">
+  <meta name="author" content="Bianca Gabriela">
+  <link rel="stylesheet" href="recursos/css/styles.css">
+  <link rel="stylesheet" href="recursos/css/contacto.css">
+</head>
+<body>
+  <header>
+    <h1><img src="recursos/imgs/logo.png" alt="Logo HTML5 CSS3">Curso de HTML5 y CSS3</h1>
+  </header>
+  <nav>
+    <ul>
+      <li id="contenidos">
+        <a href="index.html"><img src="recursos/imgs/book.png" alt="">Contenidos</a>
+      </li>
+      <li id="videos">
+        <a href="videos.html"><img src="recursos/imgs/film.png" alt="">Vídeos</a>
+        <ul>
+          <li><a href="videos.html">Vídeo 1</a></li>
+          <li><a href="videos.html">Vídeo 2</a></li>
+          <li><a href="videos.html">Vídeo 3</a></li>
+        </ul>
+      </li>
+      <li id="contacto">
+        <a href="#"><img src="recursos/imgs/mail.png" alt="">Contacto</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <div id="contenedorFormulario">
+      <h1>Contáctenos</h1>
+      <form id="formContacto" method="post">
+
+        <datalist id="nombresValidos">
+          <option value="alex">
+          <option value="juan">
+          <option value="ana">
+          <option value="pedro">
+        </datalist>
+
+        <div class="campo">
+          <input type="text" id="nombre" name="nombre"
+                 placeholder="Escriba su nombre"
+                 required
+                 list="nombresValidos"
+                 autocomplete="off">
+          <label for="nombre"></label>
+        </div>
+
+        <div class="campo">
+          <input type="email" id="correo" name="correo"
+                 placeholder="Escriba su email"
+                 required
+                 autocomplete="off">
+          <label for="correo"></label>
+        </div>
+
+        <div class="campo">
+          <textarea id="mensaje" name="mensaje"
+                    placeholder="Su mensaje..."
+                    required></textarea>
+        </div>
+
+        <input type="submit" value="Enviar" id="btnEnviar">
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>Bianca Gabriela © 2026. Curso de HTML5 y CSS3.</p>
+    <p>Impartido para: <a href="http://cefire.edu.gva.es">CEFIRE - Específico de Formación Profesional</a></p>
+  </footer>
+
+  <script src="scripts/contacto.js"></script>
+</body>
+</html>

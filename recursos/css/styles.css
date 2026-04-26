@@ -1,3 +1,14 @@
+@font-face {
+    font-family: 'LeagueGothic';
+    src: url('../fonts/League_Gothic-webfont.eot');
+    src: url('../fonts/League_Gothic-webfont.eot?') format('eot'),
+         url('../fonts/League_Gothic-webfont.woff') format('woff'),
+         url('../fonts/League_Gothic-webfont.ttf') format('truetype'),
+         url('../fonts/League_Gothic-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -25,6 +36,9 @@ header h1 {
     position: relative;
     padding-left: 80px;
     line-height: 1;
+    font-family: 'LeagueGothic', Impact, 'Arial Narrow', sans-serif;
+    letter-spacing: 3px;
+    text-transform: uppercase;
 }
 
 header h1 img {
@@ -61,6 +75,9 @@ nav > ul > li > a {
     text-decoration: none;
     color: white;
     font-size: 20px;
+    font-family: 'LeagueGothic', Impact, 'Arial Narrow', sans-serif;
+    letter-spacing: 3px;
+    text-transform: uppercase;
     text-shadow: 0px 0px 5px white;
     transition: text-shadow 0.5s;
     -webkit-transition: text-shadow 0.5s;
@@ -146,6 +163,9 @@ nav > ul > li > ul > li > a {
     text-decoration: none;
     display: block;
     font-size: 13px;
+    font-family: Verdana, sans-serif;
+    letter-spacing: normal;
+    text-transform: none;
     text-shadow: none;
     transition: none;
 }
