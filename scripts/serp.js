@@ -60,10 +60,6 @@ var wall = [];
 var medios = [];
 var numMediosCargados = 0;
 
-Array.longitud = function (obj) {
-  return Object.getOwnPropertyNames(obj).length - 1;
-};
-
 function cargaMedio() {
   numMediosCargados++;
 }
@@ -102,21 +98,21 @@ function paint(ctx) {
   ctx.fillText('Score: ' + score, 10, 15);
 
   for (var i = 0; i < body.length; i++) {
-    if (medios['iBody'] && numMediosCargados >= Array.longitud(medios)) {
+    if (medios['iBody'] && numMediosCargados >= 3) {
       ctx.drawImage(medios['iBody'], body[i].x, body[i].y);
     } else {
       body[i].fill(ctx);
     }
   }
 
-  if (medios['iFood'] && numMediosCargados >= Array.longitud(medios)) {
+  if (medios['iFood'] && numMediosCargados >= 3) {
     ctx.drawImage(medios['iFood'], food.x, food.y);
   } else {
     food.fill(ctx);
   }
 
   for (var j = 0, l = wall.length; j < l; j++) {
-    if (medios['iWall'] && numMediosCargados >= Array.longitud(medios)) {
+    if (medios['iWall'] && numMediosCargados >= 3) {
       ctx.drawImage(medios['iWall'], wall[j].x, wall[j].y);
     } else {
       wall[j].fill(ctx);
@@ -217,6 +213,20 @@ function repaint() {
   paint(lienzo);
 }
 
+function cargando() {
+  if (numMediosCargados < 3) {
+    lienzo.fillStyle = '#fff';
+    lienzo.fillRect(0, 0, canvas.width, canvas.height);
+    lienzo.fillStyle = '#0f0';
+    lienzo.font      = '14px verdana, sans-serif';
+    lienzo.textAlign = 'left';
+    lienzo.fillText('Cargando ' + numMediosCargados + ' de 3', 10, 20);
+    setTimeout(cargando, 100);
+  } else {
+    run();
+  }
+}
+
 function canPlayOgg() {
   var aud = new Audio();
   if (aud.canPlayType('audio/ogg').replace(/no/, '')) return true;
@@ -258,13 +268,9 @@ function iniciar() {
     medios['aComer'].src = 'recursos/sounds/chomp.m4a';
     medios['aMorir'].src = 'recursos/sounds/dies.m4a';
   }
-  medios['aComer'].addEventListener('canplaythrough', cargaMedio, false);
-  medios['aMorir'].addEventListener('canplaythrough', cargaMedio, false);
 
-  setTimeout(function() {
-    run();
-    repaint();
-  }, 2000);
+  repaint();
+  cargando();
 }
 
 document.addEventListener('keydown', function (evt) {
