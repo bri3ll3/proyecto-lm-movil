@@ -5,11 +5,14 @@
   <title>Curso de HTML5 y CSS3 - Serpiente</title>
   <meta name="description" content="HTML5, CSS3">
   <meta name="author" content="Bianca Gabriela">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="recursos/css/styles.css">
-  <link rel="stylesheet" href="recursos/css/reproductor.css">
+  <link rel="stylesheet" href="recursos/css/serpiente.css">
 </head>
 <body>
-    <header>
+  <header>
     <h1><img src="recursos/imgs/logo.png" alt="Logo HTML5 CSS3">Curso de HTML5 y CSS3</h1>
   </header>
   <nav>
@@ -31,7 +34,19 @@
     </ul>
   </nav>
 
+  <main>
+    <div id="contenedorVideojuego">
+      <canvas id="lienzo" width="500" height="300">
+        Su navegador no soporta el elemento canvas
+      </canvas>
+    </div>
+  </main>
 
-    <script src="scripts/serp.js"></script>
+  <footer>
+    <p>Bianca Gabriela © 2026. Curso de HTML5 y CSS3.</p>
+    <p>Impartido para: <a href="http://cefire.edu.gva.es">CEFIRE - Específico de Formación Profesional</a></p>
+  </footer>
+
+  <script src="scripts/serp.js"></script>
 </body>
 </html>
