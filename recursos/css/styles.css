@@ -47,6 +47,9 @@ header h1 img {
     top: 50%;
     transform: translateY(-50%);
     width: 65px;
+    animation-name:            rotarLogo;
+    animation-duration:        5s;
+    animation-iteration-count: infinite;
 }
 
 nav {
@@ -102,7 +105,7 @@ nav > ul > li > ul {
     text-align: center;
     left: 50%;
     margin-left: -50px;
-    top: 100%;        
+    top: 100%;
     font-family: Verdana, sans-serif;
     height: 0px;
     overflow: hidden;
@@ -115,7 +118,7 @@ nav > ul > li > ul {
 }
 
 nav > ul > li:hover > ul {
-    height: 111px;    
+    height: 111px;
 }
 
 nav > ul > li > ul > li {
@@ -217,29 +220,11 @@ article p {
     width: 35px;
     height: 49px;
     top: -20px;
+    left: 0px;
     background-image: url("../imgs/chincheta.png");
     background-repeat: no-repeat;
     background-size: contain;
     z-index: 3;
-}
-
-article:nth-child(1) .chincheta { left: 170px; }
-article:nth-child(2) .chincheta { left: 120px; }
-article:nth-child(3) .chincheta { left: 55px; }
-article:nth-child(1) {
-    transform: rotate(-2deg);
-    -webkit-transform: rotate(-2deg);
-    -moz-transform: rotate(-2deg);
-    -o-transform: rotate(-2deg);
-    -ms-transform: rotate(-2deg);
-}
-
-article:nth-child(3) {
-    transform: rotate(2deg);
-    -webkit-transform: rotate(2deg);
-    -moz-transform: rotate(2deg);
-    -o-transform: rotate(2deg);
-    -ms-transform: rotate(2deg);
 }
 
 main {
@@ -263,4 +248,61 @@ footer {
 
 footer a {
     color: white;
+}
+
+@keyframes rotarLogo {
+  0%   { transform: rotateY(0deg); }
+  50%  { transform: rotateY(180deg); }
+  100% { transform: rotateY(0deg); }
+}
+
+@keyframes mueveChincheta1 {
+  from { left: 0px;   }
+  to   { left: 199px; }
+}
+@keyframes mueveChincheta2 {
+  from { left: 0px;   }
+  to   { left: 120px; }
+}
+@keyframes mueveChincheta3 {
+  from { left: 0px;  }
+  to   { left: 30px; }
+}
+
+@keyframes animArticle1 {
+  from { transform: rotate(0deg);  }
+  to   { transform: rotate(-2deg); }
+}
+@keyframes animArticle3 {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(2deg); }
+}
+
+.chincheta1 {
+  left: 0px;
+  animation-name:      mueveChincheta1;
+  animation-duration:  1s;
+  animation-fill-mode: forwards;
+}
+.chincheta2 {
+  left: 0px;
+  animation-name:      mueveChincheta2;
+  animation-duration:  1s;
+  animation-fill-mode: forwards;
+}
+.chincheta3 {
+  left: 0px;
+  animation-name:      mueveChincheta3;
+  animation-duration:  1s;
+  animation-fill-mode: forwards;
+}
+.article1 {
+  animation-name:      animArticle1;
+  animation-duration:  0.5s;
+  animation-fill-mode: forwards;
+}
+.article3 {
+  animation-name:      animArticle3;
+  animation-duration:  0.5s;
+  animation-fill-mode: forwards;
 }

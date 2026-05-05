@@ -1,11 +1,6 @@
-/* ============================================
-   CONTACTO.CSS - Estilos para la página de contacto
-   ============================================ */
 
-/* Importar fuente Aguafina Script de Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Aguafina+Script&display=swap');
 
-/* ---- Sección main ---- */
 main {
   background-image: url('../imgs-curso/fondoForm.jpg');
   background-size: cover;
@@ -18,7 +13,6 @@ main {
   justify-content: center;
 }
 
-/* ---- Contenedor del formulario ---- */
 #contenedorFormulario {
   position: relative;
   display: inline-block;
@@ -30,7 +24,7 @@ main {
   box-shadow: 3px 0px 8px rgba(0, 0, 0, 0.4);
 }
 
-/* ---- Título del formulario ---- */
+
 #contenedorFormulario h1 {
   position: absolute;
   top: -16px;
@@ -47,7 +41,7 @@ main {
   white-space: nowrap;
 }
 
-/* ---- Estilos comunes para todos los campos excepto botón ---- */
+
 #formContacto input[type="text"],
 #formContacto input[type="email"],
 #formContacto textarea {
@@ -63,14 +57,12 @@ main {
   background-color: white;
 }
 
-/* ---- Campos nombre y correo ---- */
 #formContacto input[type="text"],
 #formContacto input[type="email"] {
   height: 32px;
   width: 330px;
 }
 
-/* Campo nombre: icono de persona */
 #nombre {
   background-image: url('../imgs-curso/icon-nombre.png');
   background-repeat: no-repeat;
@@ -78,7 +70,6 @@ main {
   background-size: 24px auto;
 }
 
-/* Campo correo: icono de arroba */
 #correo {
   background-image: url('../imgs-curso/icon-correo.png');
   background-repeat: no-repeat;
@@ -86,14 +77,12 @@ main {
   background-size: 24px auto;
 }
 
-/* Al obtener foco: se amplía el ancho */
 #formContacto input[type="text"]:focus,
 #formContacto input[type="email"]:focus {
   width: 370px;
   box-shadow: 0px 0px 12px rgb(255, 255, 255);
 }
 
-/* Al obtener foco y ser válido: icono valid */
 #nombre:focus:valid {
   background-image: url('../imgs-curso/icon-nombre.png'),
                     url('../imgs-curso/valid.png');
@@ -102,7 +91,7 @@ main {
   background-size: 24px auto, 24px auto;
 }
 
-/* Al obtener foco y ser inválido: icono invalid */
+
 #nombre:focus:invalid {
   background-image: url('../imgs-curso/icon-nombre.png'),
                     url('../imgs-curso/invalid.png');
@@ -127,7 +116,7 @@ main {
   background-size: 24px auto, 24px auto;
 }
 
-/* Asterisco para campos requeridos con label adyacente */
+
 input:required + label::after {
   content: ' *';
   color: #cc0000;
@@ -137,7 +126,7 @@ input:required + label::after {
   margin-left: 4px;
 }
 
-/* ---- Campo mensaje (textarea) ---- */
+
 #mensaje {
   font-family: Arial, sans-serif;
   font-size: 1em;
@@ -155,7 +144,6 @@ input:required + label::after {
   outline: none;
 }
 
-/* ---- Div campo (contenedor de input + label) ---- */
 .campo {
   display: block;
   margin-bottom: 4px;
@@ -165,7 +153,6 @@ input:required + label::after {
   display: inline;
 }
 
-/* ---- Botón enviar ---- */
 #btnEnviar {
   margin: 10px 0px;
   padding: 10px;
@@ -182,7 +169,6 @@ input:required + label::after {
   background: linear-gradient(to top, #5e5e5e, #2a2a2a);
 }
 
-/* Eliminar sombra roja de Firefox en campos inválidos */
 :invalid {
   box-shadow: none;
 }

@@ -27,7 +27,7 @@ var dir       = DERECHA;
 var score     = 0;
 var pause     = true;
 var gameover  = true;
-var wallDirs = [];
+var wallDirs  = [];
 
 function Rectangle(x, y, width, height, color) {
   this.x      = (x      == null) ? 0          : x;
@@ -182,23 +182,30 @@ function act() {
         }
       }
     }
-  
+
     for (var w = 0; w < wall.length; w++) {
       if (food.intersects(wall[w])) {
         food.x = random(canvas.width  / 10 - 1) * 10;
         food.y = random(canvas.height / 10 - 1) * 10;
-      } //arreglar esto de abajo 
-      for(var b = 2; b < body.length; b++) {
-      if (body[b].intersects(wall[w])) {
+      }
+      if (body[0].intersects(wall[w])) {
         gameover = true;
         if (medios['aMorir']) {
           medios['aMorir'].currentTime = 0;
           medios['aMorir'].play();
         }
       }
+      for (var bc = 1; bc < body.length; bc++) {
+        if (body[bc].intersects(wall[w])) {
+          gameover = true;
+          if (medios['aMorir']) {
+            medios['aMorir'].currentTime = 0;
+            medios['aMorir'].play();
+          }
+        }
+      }
     }
   }
-}
 
   if (lastPress === KEY_P && !gameover) {
     pause     = !pause;
@@ -247,6 +254,7 @@ function iniciar() {
   wall.push(new Rectangle(200, 100, 10, 10, "#999"));
 
   wallDirs = [random(4), random(4), random(4), random(4)];
+
   medios = [];
   numMediosCargados = 0;
 
@@ -277,21 +285,22 @@ function iniciar() {
   cargando();
 
   function moverParedes() {
-  if (!canvas || pause || gameover) return;
+    if (!canvas || pause || gameover) return;
 
-  for (var i = 0; i < wall.length; i++) {
-    if (wallDirs[i] === ARRIBA)    wall[i].y -= 10;
-    if (wallDirs[i] === ABAJO)     wall[i].y += 10;
-    if (wallDirs[i] === DERECHA)   wall[i].x += 10;
-    if (wallDirs[i] === IZQUIERDA) wall[i].x -= 10;
+    for (var i = 0; i < wall.length; i++) {
+      if (wallDirs[i] === ARRIBA)    wall[i].y -= 10;
+      if (wallDirs[i] === ABAJO)     wall[i].y += 10;
+      if (wallDirs[i] === DERECHA)   wall[i].x += 10;
+      if (wallDirs[i] === IZQUIERDA) wall[i].x -= 10;
 
-    if (wall[i].y <= 0)                    { wall[i].y = 0;                    wallDirs[i] = ABAJO;     }
-    if (wall[i].y >= canvas.height - 10)   { wall[i].y = canvas.height - 10;   wallDirs[i] = ARRIBA;    }
-    if (wall[i].x >= canvas.width  - 10)   { wall[i].x = canvas.width  - 10;   wallDirs[i] = IZQUIERDA; }
-    if (wall[i].x <= 0)                    { wall[i].x = 0;                     wallDirs[i] = DERECHA;   }
+      if (wall[i].y <= 0)                  { wall[i].y = 0;                  wallDirs[i] = ABAJO;     }
+      if (wall[i].y >= canvas.height - 10) { wall[i].y = canvas.height - 10; wallDirs[i] = ARRIBA;    }
+      if (wall[i].x >= canvas.width  - 10) { wall[i].x = canvas.width  - 10; wallDirs[i] = IZQUIERDA; }
+      if (wall[i].x <= 0)                  { wall[i].x = 0;                   wallDirs[i] = DERECHA;   }
+    }
   }
-}
-setInterval(moverParedes, 500);
+
+  setInterval(moverParedes, 500);
 }
 
 document.addEventListener('keydown', function (evt) {
@@ -299,4 +308,3 @@ document.addEventListener('keydown', function (evt) {
 }, false);
 
 window.addEventListener('load', iniciar, false);
-
