@@ -187,8 +187,8 @@ function act() {
       if (food.intersects(wall[w])) {
         food.x = random(canvas.width  / 10 - 1) * 10;
         food.y = random(canvas.height / 10 - 1) * 10;
-      }
-      for(var b = 0; b < body.length; b++) {
+      } //arreglar esto de abajo 
+      for(var b = 2; b < body.length; b++) {
       if (body[b].intersects(wall[w])) {
         gameover = true;
         if (medios['aMorir']) {
@@ -199,6 +199,7 @@ function act() {
     }
   }
 }
+
   if (lastPress === KEY_P && !gameover) {
     pause     = !pause;
     lastPress = null;
