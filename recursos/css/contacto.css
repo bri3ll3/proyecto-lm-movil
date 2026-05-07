@@ -172,3 +172,31 @@ input:required + label::after {
 :invalid {
   box-shadow: none;
 }
+
+@media all and (max-width: 1024px) {
+  #contenedorFormulario {
+    margin: 4%;
+    width: 58%;
+    padding: 2% 4%;
+  }
+  #contenedorFormulario h1 {
+    position: static;
+    padding: 0% 1%;
+    margin: 2% 0%;
+  }
+  #formContacto input[type="text"],
+  #formContacto input[type="email"] {
+    height: 5%;
+    width: 55%;
+  }
+  #formContacto input[type="text"]:focus,
+  #formContacto input[type="email"]:focus {
+    width: 61%;
+  }
+  #mensaje {
+    width: 75%;
+  }
+  #btnEnviar {
+    display: block;
+  }
+}

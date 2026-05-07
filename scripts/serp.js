@@ -29,6 +29,13 @@ var pause     = true;
 var gameover  = true;
 var wallDirs  = [];
 
+var recordSesion   = 0;
+var newRecord      = false;
+var newRecordAllTime = false;
+
+if (!sessionStorage.recordSesion) sessionStorage.recordSesion = 0;
+if (!localStorage.recordAbsoluto) localStorage.recordAbsoluto = 0;
+
 function Rectangle(x, y, width, height, color) {
   this.x      = (x      == null) ? 0          : x;
   this.y      = (y      == null) ? 0          : y;
@@ -70,8 +77,10 @@ function random(max) {
 }
 
 function reset() {
-  score = 0;
-  dir   = DERECHA;
+  score            = 0;
+  dir              = DERECHA;
+  newRecord        = false;
+  newRecordAllTime = false;
 
   body.length = 0;
   body.push(new Rectangle(40, 40, 10, 10, "#0f0"));
@@ -97,6 +106,8 @@ function paint(ctx) {
   ctx.font      = 'bold 12px verdana, sans-serif';
   ctx.textAlign = 'left';
   ctx.fillText('Score: ' + score, 10, 15);
+  ctx.fillText('Record sesion: ' + sessionStorage.recordSesion, 10, 30);
+  ctx.fillText('Record Absoluto: ' + localStorage.recordAbsoluto, 10, 45);
 
   for (var i = 0; i < body.length; i++) {
     if (medios['iBody'] && numMediosCargados >= 3) {
@@ -127,11 +138,27 @@ function paint(ctx) {
     if (gameover) {
       ctx.fillText('GAME OVER', canvas.width / 2, canvas.height / 2);
       ctx.font = '12px verdana, sans-serif';
-      ctx.fillText('Pulsa ENTER para jugar de nuevo', canvas.width / 2, canvas.height / 2 + 20);
+      if (newRecordAllTime) {
+        ctx.fillText('NEW RECORD ALL TIME' + score, canvas.width / 2, canvas.height / 2 + 20);
+      } else if (newRecord) {
+        ctx.fillText('NEW RECORD' + score, canvas.width / 2, canvas.height / 2 + 20);
+      }
+      ctx.fillText('Pulsa ENTER para jugar de nuevo', canvas.width / 2, canvas.height / 2 + 40);
     } else {
       ctx.fillText('PAUSE', canvas.width / 2, canvas.height / 2);
     }
     ctx.textAlign = 'left';
+  }
+}
+
+function actualizarRecords() {
+  if (score > parseInt(sessionStorage.recordSesion)) {
+    sessionStorage.recordSesion = score;
+    newRecord = true;
+  }
+  if (score > parseInt(localStorage.recordAbsoluto)) {
+    localStorage.recordAbsoluto = score;
+    newRecordAllTime = true;
   }
 }
 
@@ -176,6 +203,7 @@ function act() {
     for (var b = 1; b < body.length; b++) {
       if (body[0].intersects(body[b])) {
         gameover = true;
+        actualizarRecords();
         if (medios['aMorir']) {
           medios['aMorir'].currentTime = 0;
           medios['aMorir'].play();
@@ -190,6 +218,7 @@ function act() {
       }
       if (body[0].intersects(wall[w])) {
         gameover = true;
+        actualizarRecords();
         if (medios['aMorir']) {
           medios['aMorir'].currentTime = 0;
           medios['aMorir'].play();
@@ -198,6 +227,7 @@ function act() {
       for (var bc = 1; bc < body.length; bc++) {
         if (body[bc].intersects(wall[w])) {
           gameover = true;
+          actualizarRecords();
           if (medios['aMorir']) {
             medios['aMorir'].currentTime = 0;
             medios['aMorir'].play();

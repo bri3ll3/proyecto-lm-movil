@@ -20,3 +20,14 @@ main {
   margin: 0 auto;
   border: 2px solid #333;
 }
+
+@media all and (max-width: 1024px) {
+  #contenedorVideojuego {
+    margin: 5%;
+    padding: 2% 5%;
+    width: 80%;
+  }
+  #lienzo {
+    width: 80%;
+  }
+}
