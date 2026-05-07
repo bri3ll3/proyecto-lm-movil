@@ -250,6 +250,10 @@ footer a {
     color: white;
 }
 
+nav > a {
+    display: none;
+}
+
 @keyframes rotarLogo {
   0%   { transform: rotateY(0deg); }
   50%  { transform: rotateY(180deg); }
@@ -307,10 +311,6 @@ footer a {
   animation-fill-mode: forwards;
 }
 
-nav > a {
-  display: none;
-}
-
 @media all and (max-width: 1024px) {
   body > div {
     width: 90%;
@@ -327,6 +327,14 @@ nav > a {
 @media all and (max-width: 700px) {
   nav > ul > li {
     margin: 0 4% 1% 4%;
+  }
+  body > div {
+    flex-direction: column;
+    align-items: center;
+  }
+  article {
+    width: 90%;
+    max-width: 300px;
   }
 }
 
@@ -357,5 +365,15 @@ nav > a {
   ul.desplegado li a {
     display: block;
     border-bottom: 1px solid #ccc;
+  }
+  body > div {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+  }
+  article {
+    width: 85%;
+    max-width: 300px;
+    margin-top: 30px;
   }
 }
